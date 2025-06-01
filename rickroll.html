@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Połączenie...</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: black;
+      height: 100%;
+      width: 100%;
+    }
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: none; /* Ukryj wideo na start */
+    }
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;">
+  <div id="overlay">Kliknij, aby kontynuować...</div>
+  <video id="rick" loop playsinline>
+    <source src="rickroll.mp4" type="video/mp4">
+    Twoja przeglądarka nie obsługuje osadzonych filmów.
+  </video>
+
+  <script>
+    const video = document.getElementById("rick");
+    const overlay = document.getElementById("overlay");
+
+    // Lista zablokowanych klawiszy
+    const blockedKeys = [
+      "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12",
+      "Escape", "Esc", "Control", "Meta", "Alt", "Tab", " ",
+      "u", "i", "j", "k", "s", "o", "p", "c", "f"
+    ];
+
+    // Funkcja pełnego ekranu i odtwarzania
+    async function goFullScreenAndPlay() {
+      try {
+        await document.documentElement.requestFullscreen();
+        video.style.display = 'block';
+        video.muted = false;
+        video.volume = 1.0;
+        await video.play().catch(e => {
+          // Jeśli autoodtwarzanie zawiedzie, spróbuj z dźwiękiem wyciszonym
+          video.muted = true;
+          video.play();
+        });
+      } catch (e) {
+        console.error("Błąd:", e);
+        // Alternatywa jeśli pełny ekran zawiedzie
+        video.style.display = 'block';
+        video.muted = true;
+        video.play();
+      }
+    }
+
+    // Blokowanie klawiszy
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.ctrlKey || e.metaKey || e.altKey ||
+        blockedKeys.includes(e.key) ||
+        blockedKeys.includes(e.code)
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        return false;
+      }
+      
+      // Blokuj kombinacje klawiszy (np. Ctrl+Shift+I)
+      if (e.ctrlKey && e.shiftKey) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Blokowanie menu kontekstowego
+    window.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      return false;
+    });
+
+    // Blokowanie przycisku F11 (pełny ekran)
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(e => {});
+      }
+    });
+
+    // Start po kliknięciu
+    overlay.addEventListener("click", () => {
+      goFullScreenAndPlay();
+      overlay.remove();
+    });
+
+    // Automatyczna próba pełnego ekranu (dla niektórych przeglądarek)
+    if (window.location.href.indexOf('autostart') > -1) {
+      overlay.click();
+    }
+  </script>
+</body>
+</html>
