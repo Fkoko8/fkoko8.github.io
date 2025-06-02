@@ -5,9 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kawiarnia Ekologiczna</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Stylizacja pop-up */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .popup-content {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .popup-content h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+    
+    .popup-content p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+    
+    .popup-content .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #777;
+    }
+    
+    .popup-content .close-btn:hover {
+      color: #333;
+    }
+    
+    .popup-btn {
+      background-color: #8e44ad;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    
+    .popup-btn:hover {
+      background-color: #732d91;
+    }
+  </style>
 </head>
 <body>
 
+<!-- Pop-up Window -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-content">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <h2>Specjalna oferta dla Ciebie!</h2>
+    <p>Zapisz się do naszego newslettera i otrzymaj <strong>10% zniżki</strong> na pierwszą kawę!</p>
+    <form id="newsletterForm">
+      <input type="email" placeholder="Twój e-mail" required style="padding: 8px; width: 80%; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
+      <button type="submit" class="popup-btn">Zapisz się</button>
+    </form>
+    <p style="font-size: 12px; margin-top: 15px;">Obiecujemy nie spamować. W każdej chwili możesz się wypisać.</p>
+  </div>
+</div>
+
+<!-- Reszta Twojej strony -->
 <header>
   <div class="header-container">
     <div class="logo">
@@ -25,84 +103,57 @@
   </div>
 </header>
 	
-<section id="hero">
-  <h1>Witaj w Kawiarni Ekologicznej!</h1>
-  <p>Naturalne smaki. Lokalne produkty. Ekologiczna pasja.</p>
-  <a href="menu.html" class="button">Zobacz nasze menu</a>
-</section>
-
-<section id="about">
-  <h2>Dlaczego warto nas odwiedzić?</h2>
-  <div class="features">
-    <div class="feature">
-      <h3>Ekologiczne Produkty</h3>
-      <p>Wybieramy tylko certyfikowane składniki organiczne, aby dostarczyć Ci najwyższą jakość w każdej filiżance.</p>
-    </div>
-    <div class="feature">
-      <h3>Wsparcie lokalnych dostawców</h3>
-      <p>Współpracujemy z małymi gospodarstwami i lokalnymi producentami. Dzięki temu wspierasz lokalną społeczność.</p>
-    </div>
-    <div class="feature">
-      <h3>Przyjazna atmosfera</h3>
-      <p>Nasza kawiarnia to miejsce, w którym możesz odpocząć, popracować lub spotkać się z przyjaciółmi.</p>
-    </div>
-  </div>
-</section>
-
-<section id="gallery">
-  <h2>Nasza Galeria</h2>
-  <div class="gallery-cards">
-    <div class="card">
-      <div class="card-img img1"></div>
-      <div class="card-text">
-        <h3>Kawa sezonowa</h3>
-        <p>Aromatyczna kawa z nutą wanilii i cynamonu.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-img img2"></div>
-      <div class="card-text">
-        <h3>Ciasto marchewkowe</h3>
-        <p>Domowe ciasto z lokalnych składników.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-img img3"></div>
-      <div class="card-text">
-        <h3>Herbaty świata</h3>
-        <p>Naturalne napary z różnych zakątków świata.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ... reszta Twojego kodu HTML ... -->
 
 <script>
-  function zegar() {
-    var data = new Date();
-    var godzina = data.getHours();
-    var min = data.getMinutes();
-    var sek = data.getSeconds();
-    var terazjest = godzina +
-      (min < 10 ? ":0" : ":") + min +
-      (sek < 10 ? ":0" : ":") + sek;
-    document.getElementById("zegarek").innerHTML = terazjest;
-    setTimeout(zegar, 1000);
-  }
-
-  window.onload = zegar;
+  // Pop-up Window - JavaScript
+  document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('closePopup');
+    const newsletterForm = document.getElementById('newsletterForm');
+    
+    // Pokaz pop-up po 3 sekundach
+    setTimeout(function() {
+      popup.style.display = 'flex';
+    }, 3000);
+    
+    // Zamknij pop-up po kliknięciu X
+    closePopup.addEventListener('click', function() {
+      popup.style.display = 'none';
+    });
+    
+    // Zamknij pop-up po kliknięciu poza nim
+    popup.addEventListener('click', function(e) {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+    
+    // Obsługa formularza newslettera
+    newsletterForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[type="email"]').value;
+      alert('Dziękujemy za zapisanie się! Na adres ' + email + ' wysłaliśmy kod rabatowy.');
+      popup.style.display = 'none';
+      this.reset();
+    });
+    
+    // Funkcja zegara (z Twojego kodu)
+    function zegar() {
+      var data = new Date();
+      var godzina = data.getHours();
+      var min = data.getMinutes();
+      var sek = data.getSeconds();
+      var terazjest = godzina +
+        (min < 10 ? ":0" : ":") + min +
+        (sek < 10 ? ":0" : ":") + sek;
+      document.getElementById("zegarek").innerHTML = terazjest;
+      setTimeout(zegar, 1000);
+    }
+    
+    window.onload = zegar;
+  });
 </script>
 	
-<footer>
-  <div class="footer-container">
-    <p>&copy; 2025 Kawiarnia Ekologiczna. Wszystkie prawa zastrzeżone.</p>
-    <div class="social-media">
-      <a href="https://www.facebook.com/">Facebook</a>
-      <a href="https://www.instagram.com/">Instagram</a>
-      <a href="https://x.com">X</a>
-    <p>Filip Kokoryk, Eryk Steginski, Kamil Kubicki, Ivan Dykij</p>
-    </div>
-  </div>
-</footer>
-
 </body>
 </html>
