@@ -648,7 +648,7 @@ main {
 
 /* Stylizacja menu hamburgera */
 .hamburger {
-    display: none;
+    display: none; /* Domyślnie ukryty */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -658,7 +658,8 @@ main {
     border: none;
     cursor: pointer;
     z-index: 1100;
-    margin-left: auto;
+    position: absolute;
+    right: 20px;
 }
 
 .hamburger span {
@@ -666,49 +667,66 @@ main {
     width: 28px;
     height: 4px;
     background: #fff;
-    margin: 5px 0;
+    margin: 3px 0;
     border-radius: 2px;
     transition: all 0.3s;
 }
 
-/* Responsywność menu hamburgera */
+/* Media queries dla responsywności hamburgera */
 @media (max-width: 900px) {
     .hamburger { 
-        display: flex; 
+        display: flex; /* Pokazuj tylko na małych ekranach */
     }
+    
     nav ul {
-        display: none;
+        display: none; /* Domyślnie ukryte na małych ekranach */
         flex-direction: column;
         position: absolute;
-        top: 70px;
-        right: 10px;
+        top: 100%; /* Pozycjonuj pod headerem */
+        right: 20px;
         background: #1e3932;
-        width: 180px;
+        width: 200px;
         border-radius: 8px;
         box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         z-index: 1000;
-        padding: 12px 0;
-        transition: all 0.3s;
+        padding: 15px 0;
+        transition: all 0.3s ease;
     }
+    
     nav ul.open {
-        display: flex;
+        display: flex; /* Pokazuj gdy ma klasę .open */
     }
+    
+    nav ul li {
+        margin: 8px 0;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    
     .header-container {
         position: relative;
     }
 }
 
 @media (min-width: 901px) {
+    /* Na dużych ekranach */
     nav ul {
-        display: flex !important;
+        display: flex !important; /* Zawsze widoczne */
         position: static;
         flex-direction: row;
         background: none;
         box-shadow: none;
         width: auto;
         padding: 0;
+        gap: 30px;
     }
+    
     .hamburger { 
-        display: none !important; 
+        display: none !important; /* Zawsze ukryty */
     }
 }
