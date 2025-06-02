@@ -215,9 +215,8 @@ footer .social-media a:hover {
 }
 
 #hero {
-    margin-top: 65px;
+    margin-top: 30px;
     padding: 60px 20px;
-    background: url('tlo.jpg') no-repeat center center/cover;
     text-align: center;
     color: rgb(255, 255, 255);
     background-color: #1e3932;
