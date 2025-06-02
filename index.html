@@ -25,10 +25,10 @@
           <li><a href="budowa.html">Nowości</a></li>
         </ul>
       </nav>
-      <button class="hamburger" aria-label="Otwórz lub zamknij menu" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+       <button class="menu-toggle" aria-label="Otwórz menu" onclick="toggleSlideMenu()">
+         <span></span>
+         <span></span>
+         <span></span>
       </button>
     </div>
   </header>
@@ -100,28 +100,22 @@
     </div>
   </footer>
 
-  <!-- Skrypt JavaScript do obsługi menu hamburgera -->
-  <script>
-    function toggleMenu() {
-      const navMenu = document.querySelector('nav ul');
-      navMenu.classList.toggle('open');
-    }
-
-    // Zamykanie menu po kliknięciu linku
-    document.querySelectorAll('nav ul li a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelector('nav ul').classList.remove('open');
-      });
-    });
-
-    // Zamykanie menu po kliknięciu poza menu
-    document.addEventListener('click', (event) => {
-      const navMenu = document.querySelector('nav ul');
-      const hamburger = document.querySelector('.hamburger');
-      if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
-        navMenu.classList.remove('open');
-      }
-    });
-  </script>
+<div class="menu-overlay" onclick="closeSlideMenu()"></div>
+<div class="slide-menu">
+  <div class="slide-menu-header">
+    <h3>Menu</h3>
+    <button class="close-btn" onclick="closeSlideMenu()">&times;</button>
+  </div>
+  <nav class="slide-nav">
+    <ul>
+      <li><a href="index.html" onclick="closeSlideMenu()">Strona Główna</a></li>
+      <li><a href="onas.html" onclick="closeSlideMenu()">O nas</a></li>
+      <li><a href="menu.html" onclick="closeSlideMenu()">Menu</a></li>
+      <li><a href="kontakt.html" onclick="closeSlideMenu()">Kontakt</a></li>
+      <li><a href="budowa.html" onclick="closeSlideMenu()">Nowości</a></li>
+    </ul>
+  </nav>
+</div>
+  
 </body>
 </html>
