@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Kawiarnia Ekologiczna – ekologiczne napoje i zdrowe przekąski. Odwiedź nas już dziś!">
+  <meta name="keywords" content="kawiarnia, ekologiczna, kawa, zdrowa żywność, newsletter">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <title>Kawiarnia Ekologiczna</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -25,56 +28,58 @@
   </div>
 </header>
 
-<section id="hero">
-  <h1>Witaj w Kawiarni Ekologicznej</h1>
-  <p>Naturalne smaki. Lokalne produkty. Ekologiczna pasja.</p>
-  <a href="menu.html" class="button">Zobacz nasze menu</a>
-</section>
+<main>
+  <section id="hero">
+    <h1>Witaj w Kawiarni Ekologicznej!</h1>
+    <p>Naturalne smaki. Lokalne produkty. Ekologiczna pasja.</p>
+    <a href="menu.html" class="button">Zobacz nasze menu</a>
+  </section>
 
-<section id="about">
-  <h2>Dlaczego warto nas odwiedzić?</h2>
-  <div class="features">
-    <div class="feature">
-      <h3>Ekologiczne Produkty</h3>
-      <p>Wybieramy tylko certyfikowane składniki organiczne, aby dostarczyć Ci najwyższą jakość w każdej filiżance.</p>
+  <section id="about">
+    <h2>Dlaczego warto nas odwiedzić?</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Ekologiczne Produkty</h3>
+        <p>Wybieramy tylko certyfikowane składniki organiczne, aby dostarczyć Ci najwyższą jakość w każdej filiżance.</p>
+      </div>
+      <div class="feature">
+        <h3>Wsparcie lokalnych dostawców</h3>
+        <p>Współpracujemy z małymi gospodarstwami i lokalnymi producentami. Dzięki temu wspierasz lokalną społeczność.</p>
+      </div>
+      <div class="feature">
+        <h3>Przyjazna atmosfera</h3>
+        <p>Nasza kawiarnia to miejsce, w którym możesz odpocząć, popracować lub spotkać się z przyjaciółmi.</p>
+      </div>
     </div>
-    <div class="feature">
-      <h3>Wsparcie lokalnych dostawców</h3>
-      <p>Współpracujemy z małymi gospodarstwami i lokalnymi producentami. Dzięki temu wspierasz lokalną społeczność.</p>
-    </div>
-    <div class="feature">
-      <h3>Przyjazna atmosfera</h3>
-      <p>Nasza kawiarnia to miejsce, w którym możesz odpocząć, popracować lub spotkać się z przyjaciółmi.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="gallery">
-  <h2>Nasza Galeria</h2>
-  <div class="gallery-cards">
-    <div class="card">
-      <div class="card-img img1"></div>
-      <div class="card-text">
-        <h3>Kawa sezonowa</h3>
-        <p>Aromatyczna kawa z nutą wanilii i cynamonu.</p>
+  <section id="gallery">
+    <h2>Nasza Galeria</h2>
+    <div class="gallery-cards">
+      <div class="card">
+        <div class="card-img img1"></div>
+        <div class="card-text">
+          <h3>Kawa sezonowa</h3>
+          <p>Aromatyczna kawa z nutą wanilii i cynamonu.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img img2"></div>
+        <div class="card-text">
+          <h3>Ciasto marchewkowe</h3>
+          <p>Domowe ciasto z lokalnych składników.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img img3"></div>
+        <div class="card-text">
+          <h3>Herbaty świata</h3>
+          <p>Naturalne napary z różnych zakątków świata.</p>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-img img2"></div>
-      <div class="card-text">
-        <h3>Ciasto marchewkowe</h3>
-        <p>Domowe ciasto z lokalnych składników.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-img img3"></div>
-      <div class="card-text">
-        <h3>Herbaty świata</h3>
-        <p>Naturalne napary z różnych zakątków świata.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
   <div class="footer-container">
@@ -83,11 +88,27 @@
       <a href="https://www.facebook.com/">Facebook</a>
       <a href="https://www.instagram.com/">Instagram</a>
       <a href="https://x.com">X</a>
-    <p>Filip Kokoryk, Eryk Steginski, Kamil Kubicki, Ivan Dykij</p>
+      <p>Filip Kokoryk, Eryk Steginski, Kamil Kubicki, Ivan Dykij</p>
     </div>
   </div>
 </footer>
 
+<!-- Baner cookies (RODO) -->
+<div id="cookieBanner" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#222; color:#fff; padding:15px; text-align:center; z-index:2000;">
+  Ta strona używa plików cookies. Korzystając z niej, akceptujesz naszą <a href="polityka.html" style="color:#ffd700;">politykę prywatności</a>.
+  <button onclick="document.getElementById('cookieBanner').style.display='none'" style="margin-left:15px;">OK</button>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if(!localStorage.getItem('cookieAccepted')) {
+      document.getElementById('cookieBanner').style.display = 'block';
+    }
+    document.querySelector('#cookieBanner button').onclick = function() {
+      localStorage.setItem('cookieAccepted', '1');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+  });
+</script>
+
 </body>
 </html>
-	
