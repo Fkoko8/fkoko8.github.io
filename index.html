@@ -95,9 +95,23 @@
 
 <script>
 function toggleMenu() {
-  const ul = document.querySelector('nav ul');
-  ul.classList.toggle('open');
+  const menu = document.getElementById('main-menu');
+  menu.classList.toggle('open');
 }
+
+// Zamknij menu po kliknięciu linku (opcja, wygodne dla UX)
+document.addEventListener('DOMContentLoaded', function() {
+  const menu = document.getElementById('main-menu');
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if(window.innerWidth <= 900) menu.classList.remove('open');
+    });
+  });
+  // Zamknij menu przy zmianie rozmiaru okna na desktop
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 900) menu.classList.remove('open');
+  });
+});
 </script>
 
 </body>
