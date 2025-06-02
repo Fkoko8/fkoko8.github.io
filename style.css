@@ -215,11 +215,12 @@ footer .social-media a:hover {
 }
 
 #hero {
-    padding: 80px 20px 60px;
+    padding: 130px 20px 60px; 
     text-align: center;
     color: #ffffff;
     background-color: #1e3932;
 }
+
 
 #hero h1 {
     font-size: 48px;
