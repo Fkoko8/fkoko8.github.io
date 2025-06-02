@@ -97,25 +97,19 @@
 </footer>
 
 <script>
-function toggleMenu() {
-  const menu = document.getElementById('main-menu');
-  menu.classList.toggle('open');
-}
+  function toggleMenu() {
+    const navMenu = document.querySelector('nav ul');
+    navMenu.classList.toggle('open');
+  }
 
-// Zamknij menu po kliknięciu linku (opcja, wygodne dla UX)
-document.addEventListener('DOMContentLoaded', function() {
-  const menu = document.getElementById('main-menu');
-  menu.querySelectorAll('a').forEach(link => {
+  // Automatycznie zamykaj menu po kliknięciu linku
+  document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
-      if(window.innerWidth <= 900) menu.classList.remove('open');
+      document.querySelector('nav ul').classList.remove('open');
     });
   });
-  // Zamknij menu przy zmianie rozmiaru okna na desktop
-  window.addEventListener('resize', () => {
-    if(window.innerWidth > 900) menu.classList.remove('open');
-  });
-});
 </script>
+
 
 </body>
 </html>
