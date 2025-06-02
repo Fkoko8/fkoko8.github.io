@@ -1,9 +1,11 @@
+/* Resetowanie stylów i podstawowe ustawienia */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Stylizacja body i typografii */
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
@@ -19,6 +21,7 @@ html, body {
     margin: 0;
 }
 
+/* Układ dla main i section */
 main, section {
     flex: 1;
 }
@@ -30,6 +33,7 @@ main, section {
     margin-bottom: 20px;
 }
 
+/* Stylizacja nagłówka (header) */
 header {
     background-color: #1e3932;
     color: white;
@@ -56,12 +60,11 @@ header {
     margin-left: 25px;
 }
 
-
-
 header .logo img {
     width: 100px;
 }
 
+/* Stylizacja nawigacji */
 nav {
     display: flex;
     justify-content: center;
@@ -90,6 +93,7 @@ header nav ul li a:hover {
     border-bottom: 2px solid #ffffff;
 }
 
+/* Stylizacja przycisków */
 .btn {
     background-color: #00754a;
     padding: 12px 30px;
@@ -104,6 +108,7 @@ header nav ul li a:hover {
     background-color: #00563b;
 }
 
+/* Stylizacja sekcji */
 section {
     padding: 60px 20px;
     text-align: center;
@@ -119,6 +124,7 @@ section p, section ul {
     font-size: 18px;
 }
 
+/* Stylizacja menu */
 #menu ul {
     list-style: none;
     padding: 0;
@@ -129,6 +135,7 @@ section p, section ul {
     font-size: 20px;
 }
 
+/* Stylizacja formularzy */
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -165,6 +172,7 @@ form button:hover {
     background-color: #00563b;
 }
 
+/* Stylizacja stopki (footer) */
 footer {
     background-color: #1e3932;
     color: white;
@@ -190,6 +198,7 @@ footer .social-media a:hover {
     text-decoration: underline;
 }
 
+/* Stylizacja strony menu */
 #menu-page {
     position: relative;
     padding: 80px 20px;
@@ -214,13 +223,13 @@ footer .social-media a:hover {
     margin: 15px 0;
 }
 
+/* Stylizacja sekcji hero */
 #hero {
     padding: 130px 20px 60px; 
     text-align: center;
     color: #ffffff;
     background-color: #1e3932;
 }
-
 
 #hero h1 {
     font-size: 48px;
@@ -245,6 +254,7 @@ footer .social-media a:hover {
     background-color: #00563b;
 }
 
+/* Stylizacja sekcji o nas */
 #about {
     padding: 60px 20px;
     text-align: center;
@@ -294,6 +304,7 @@ footer .social-media a:hover {
     margin-bottom: 10px;
 }
 
+/* Stylizacja galerii */
 #gallery {
     padding: 60px 20px;
     text-align: center;
@@ -377,6 +388,7 @@ footer .social-media a:hover {
     color: #333;
 }
 
+/* Stylizacja sekcji construction */
 #construction {
     margin-top: 120px;
     padding: 40px 20px;
@@ -398,6 +410,7 @@ footer .social-media a:hover {
     margin-bottom: 20px;
 }
 
+/* Stylizacja sekcji kontakt */
 #contact {
     margin-top: 100px;
     padding: 15px 5px;
@@ -434,7 +447,7 @@ form .error-message {
     color: #d32f2f;
 }
 
-/* Sekcje specyficzne */
+/* Stylizacja sekcji wprowadzających */
 .intro {
     font-size: 18px;
     text-align: center;
@@ -442,6 +455,7 @@ form .error-message {
     margin-bottom: 40px;
 }
 
+/* Stylizacja kategorii menu */
 .menu-category {
     margin-bottom: 40px;
 }
@@ -481,7 +495,7 @@ form .error-message {
     margin-top: 30px;
 }
 
-/* Kontakt */
+/* Stylizacja informacji kontaktowych */
 .contact-info {
     display: flex;
     justify-content: space-between;
@@ -536,12 +550,12 @@ form .error-message {
     background-color: #1e3932;
 }
 
+/* Stylizacja main */
 main {
     margin-top: 80px;
 }
 
-
-/* o nas */
+/* Stylizacja sekcji o nas - nagłówki i teksty */
 .highlight-heading {
     font-size: 30px;
     color: #00754a;
@@ -580,129 +594,121 @@ main {
     line-height: 1.8;
 }
 
-
+/* Media queries dla responsywności */
 @media (max-width: 900px) {
-  .header-container, .features, .gallery-cards, .contact-info {
-    flex-direction: column !important;
-    align-items: stretch;
-    gap: 16px;
-  }
-  .logo {
-    position: static;
-    transform: none;
-    margin: 0 auto 12px auto;
-    display: flex;
-    justify-content: center;
-  }
-  header nav ul {
-    flex-direction: column;
-    gap: 12px;
-    background: #1e3932;
-    padding: 10px 0;
-  }
-  .container, #menu-page, section, main {
-    padding: 16px !important;
-    max-width: 100vw !important;
-  }
-  .card, .feature, .contact-item {
-    max-width: 100% !important;
-    margin: 0 auto 20px auto !important;
-  }
-  .image, .gallery-images img {
-    width: 100% !important;
-    height: auto !important;
-    max-width: 350px;
-  }
-  #hero h1 {
-    font-size: 28px !important;
-  }
-  #hero p, .lead-text {
-    font-size: 16px !important;
-  }
+    /* Responsywność dla nagłówka, funkcji, galerii i kontaktów */
+    .header-container, .features, .gallery-cards, .contact-info {
+        flex-direction: column !important;
+        align-items: stretch;
+        gap: 16px;
+    }
+    .logo {
+        position: static;
+        transform: none;
+        margin: 0 auto 12px auto;
+        display: flex;
+        justify-content: center;
+    }
+    header nav ul {
+        flex-direction: column;
+        gap: 12px;
+        background: #1e3932;
+        padding: 10px 0;
+    }
+    .container, #menu-page, section, main {
+        padding: 16px !important;
+        max-width: 100vw !important;
+    }
+    .card, .feature, .contact-item {
+        max-width: 100% !important;
+        margin: 0 auto 20px auto !important;
+    }
+    .image, .gallery-images img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 350px;
+    }
+    #hero h1 {
+        font-size: 28px !important;
+    }
+    #hero p, .lead-text {
+        font-size: 16px !important;
+    }
 }
+
 @media (max-width: 600px) {
-  header .logo img {
-    width: 70px !important;
-  }
-  .section-title, #menu-page h1 {
-    font-size: 24px !important;
-  }
+    /* Dodatkowe style dla mniejszych ekranów */
+    header .logo img {
+        width: 70px !important;
+    }
+    .section-title, #menu-page h1 {
+        font-size: 24px !important;
+    }
 }
 
-
-/* Hamburger menu – stylowanie */
+/* Stylizacja menu hamburgera */
 .hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1100;
-  margin-left: auto;
-}
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1100;
-  margin-left: auto;
-}
-.hamburger span {
-  display: block;
-  width: 28px;
-  height: 4px;
-  background: #fff;
-  margin: 5px 0;
-  border-radius: 2px;
-  transition: all 0.3s;
-}
-
-@media (max-width: 900px) {
-  .hamburger { display: flex; }
-  nav ul {
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 10px;
-    background: #1e3932;
-    width: 180px;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    z-index: 1000;
-    padding: 12px 0;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    margin-left: auto;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    background: #fff;
+    margin: 5px 0;
+    border-radius: 2px;
     transition: all 0.3s;
-  }
-  nav ul.open {
-    display: flex;
-  }
-  .header-container {
-    position: relative;
-  }
+}
+
+/* Responsywność menu hamburgera */
+@media (max-width: 900px) {
+    .hamburger { 
+        display: flex; 
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        background: #1e3932;
+        width: 180px;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        z-index: 1000;
+        padding: 12px 0;
+        transition: all 0.3s;
+    }
+    nav ul.open {
+        display: flex;
+    }
+    .header-container {
+        position: relative;
+    }
 }
 
 @media (min-width: 901px) {
-  nav ul {
-    display: flex !important;
-    position: static;
-    flex-direction: row;
-    background: none;
-    box-shadow: none;
-    width: auto;
-    padding: 0;
-  }
-  
-    
-    .hamburger { display: none !important; }
+    nav ul {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        width: auto;
+        padding: 0;
+    }
+    .hamburger { 
+        display: none !important; 
+    }
 }
-
