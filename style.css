@@ -677,3 +677,13 @@ main {
     position: relative;
   }
 }
+
+@media (max-width: 900px) {
+  nav ul {
+    display: none !important;
+  }
+  nav ul.open {
+    display: flex !important;
+  }
+}
+
