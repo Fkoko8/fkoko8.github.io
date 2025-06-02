@@ -644,6 +644,19 @@ main {
   z-index: 1100;
   margin-left: auto;
 }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  margin-left: auto;
+}
 .hamburger span {
   display: block;
   width: 28px;
@@ -654,7 +667,6 @@ main {
   transition: all 0.3s;
 }
 
-/* Pokazuj hamburger tylko na telefonach */
 @media (max-width: 900px) {
   .hamburger { display: flex; }
   nav ul {
@@ -669,6 +681,7 @@ main {
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     z-index: 1000;
     padding: 12px 0;
+    transition: all 0.3s;
   }
   nav ul.open {
     display: flex;
@@ -678,12 +691,18 @@ main {
   }
 }
 
-@media (max-width: 900px) {
+@media (min-width: 901px) {
   nav ul {
-    display: none !important;
-  }
-  nav ul.open {
     display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+    width: auto;
+    padding: 0;
   }
+  
+    
+    .hamburger { display: none !important; }
 }
 
