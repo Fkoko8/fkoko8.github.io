@@ -752,7 +752,6 @@ main {
 }
 
 .slide-nav ul li a {
-  display: block;
   color: white;
   text-decoration: none;
   padding: 15px 25px;
@@ -762,6 +761,7 @@ main {
   transition: all 0.3s;
   border-left: 4px solid transparent;
 }
+
 
 .slide-nav ul li a:hover {
   background: rgba(255, 255, 255, 0.1);
