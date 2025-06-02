@@ -215,10 +215,9 @@ footer .social-media a:hover {
 }
 
 #hero {
-    margin-top: 30px;
-    padding: 60px 20px;
+    padding: 100px 20px 60px; 
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     background-color: #1e3932;
 }
 
@@ -239,6 +238,10 @@ footer .social-media a:hover {
     border-radius: 30px;
     text-decoration: none;
     font-size: 18px;
+}
+
+.button:hover {
+    background-color: #00563b;
 }
 
 #about {
