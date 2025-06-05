@@ -301,7 +301,7 @@ footer .social-media a:hover {
 
 /* Stylizacja sekcji hero */
 #hero {
-    padding: 130px 20px 60px;
+    padding: 150px 20px 60px; /* Zwiększono padding-top do 150px, aby sekcja była poniżej paska z logo */
     text-align: center;
     color: #ffffff;
     background-color: #1e3932;
