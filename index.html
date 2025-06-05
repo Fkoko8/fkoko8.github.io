@@ -3,152 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Kawiarnia Ekologiczna oferuje naturalne smaki z lokalnych, ekologicznych produktów. Odwiedź nas i poczuj ekologiczną pasję!" />
-  <meta name="keywords" content="kawiarnia, ekologia, kawa, herbata, ciasta, lokalne produkty, organiczne" />
-  <title>Kawiarnia Ekologiczna - Naturalne Smaki i Lokalne Produkty</title>
+  <title>Kawiarnia Ekologiczna</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 
-  <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
-
-  <header>
-    <div class="header-container">
-      <div class="logo">
-        <img src="logo.png" alt="Logo Kawiarni Ekologicznej" />
-      </div>
-      <nav role="navigation">
-        <ul>
-          <li><a href="index.html">Strona Główna</a></li>
-          <li><a href="onas.html">O nas</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="budowa.html">Nowości</a></li>
-        </ul>
-      </nav>
-      <div class="hamburger" id="hamburger" aria-expanded="false" aria-label="Otwórz menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <img src="logo.png" alt="Logo Kawiarni" />
     </div>
-  </header>
-
-  <!-- Mobile menu popup -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-content">
-      <button class="close-btn" id="closeMenu" aria-label="Zamknij menu">×</button>
-      <ul role="navigation">
+    <nav>
+      <ul>
         <li><a href="index.html">Strona Główna</a></li>
         <li><a href="onas.html">O nas</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="budowa.html">Nowości</a></li>
       </ul>
+    </nav>
+      <button class="menu-toggle" aria-label="Otwórz menu" onclick="toggleSlideMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+  </div>
+</header>
+
+<section id="hero">
+  <h1>Witaj w Kawiarni Ekologicznej!</h1>
+  <p>Naturalne smaki. Lokalne produkty. Ekologiczna pasja.</p>
+  <a href="menu.html" class="button">Zobacz nasze menu</a>
+</section>
+
+<section id="about">
+  <h2>Dlaczego warto nas odwiedzić?</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>Ekologiczne Produkty</h3>
+      <p>Wybieramy tylko certyfikowane składniki organiczne, aby dostarczyć Ci najwyższą jakość w każdej filiżance.</p>
+    </div>
+    <div class="feature">
+      <h3>Wsparcie lokalnych dostawców</h3>
+      <p>Współpracujemy z małymi gospodarstwami i lokalnymi producentami. Dzięki temu wspierasz lokalną społeczność.</p>
+    </div>
+    <div class="feature">
+      <h3>Przyjazna atmosfera</h3>
+      <p>Nasza kawiarnia to miejsce, w którym możesz odpocząć, popracować lub spotkać się z przyjaciółmi.</p>
     </div>
   </div>
+</section>
 
-  <main id="main-content">
-    <section id="hero" aria-label="Sekcja powitalna">
-      <h1>Witaj w Kawiarni Ekologicznej!</h1>
-      <p>Naturalne smaki. Lokalne produkty. Ekologiczna pasja.</p>
-      <a href="menu.html" class="button">Zobacz nasze menu</a>
-    </section>
-
-    <section id="about" aria-label="O nas">
-      <h2>Dlaczego warto nas odwiedzić?</h2>
-      <div class="features">
-        <div class="feature">
-          <h3>Ekologiczne Produkty</h3>
-          <p>Wybieramy tylko certyfikowane składniki organiczne, aby dostarczyć Ci najwyższą jakość w każdej filiżance.</p>
-        </div>
-        <div class="feature">
-          <h3>Wsparcie lokalnych dostawców</h3>
-          <p>Współpracujemy z małymi gospodarstwami i lokalnymi producentami. Dzięki temu wspierasz lokalną społeczność.</p>
-        </div>
-        <div class="feature">
-          <h3>Przyjazna atmosfera</h3>
-          <p>Nasza kawiarnia to miejsce, w którym możesz odpocząć, popracować lub spotkać się z przyjaciółmi.</p>
-        </div>
+<section id="gallery">
+  <h2>Nasza Galeria</h2>
+  <div class="gallery-cards">
+    <div class="card">
+      <div class="card-img img1"></div>
+      <div class="card-text">
+        <h3>Kawa sezonowa</h3>
+        <p>Aromatyczna kawa z nutą wanilii i cynamonu.</p>
       </div>
-    </section>
-
-    <section id="gallery" aria-label="Galeria">
-      <h2>Nasza Galeria</h2>
-      <div class="gallery-cards">
-        <div class="card">
-          <div class="card-img img1"></div>
-          <div class="card-text">
-            <h3>Kawa sezonowa</h3>
-            <p>Aromatyczna kawa z nutą wanilii i cynamonu.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img img2"></div>
-          <div class="card-text">
-            <h3>Ciasto marchewkowe</h3>
-            <p>Domowe ciasto z lokalnych składników.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img img3"></div>
-          <div class="card-text">
-            <h3>Herbaty świata</h3>
-            <p>Naturalne napary z różnych zakątków świata.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-container">
-      <p>© 2025 Kawiarnia Ekologiczna. Wszystkie prawa zastrzeżone.</p>
-      <div class="social-media">
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
-      </div>
-      <p>Filip Kokoryk, Eryk Steginski, Kamil Kubicki, Ivan Dykij</p>
     </div>
-  </footer>
+    <div class="card">
+      <div class="card-img img2"></div>
+      <div class="card-text">
+        <h3>Ciasto marchewkowe</h3>
+        <p>Domowe ciasto z lokalnych składników.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img img3"></div>
+      <div class="card-text">
+        <h3>Herbaty świata</h3>
+        <p>Naturalne napary z różnych zakątków świata.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const closeMenu = document.getElementById('closeMenu');
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 Kawiarnia Ekologiczna. Wszystkie prawa zastrzeżone.</p>
+    <div class="social-media">
+      <a href="https://www.facebook.com/">Facebook</a>
+      <a href="https://www.instagram.com/">Instagram</a>
+      <a href="https://x.com">X</a>
+    <p>Filip Kokoryk, Eryk Steginski, Kamil Kubicki, Ivan Dykij</p>
+    </div>
+  </div>
+</footer>
 
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      hamburger.setAttribute('aria-expanded', 'true');
-    });
+<div class="menu-overlay" onclick="closeSlideMenu()"></div>
+<div class="slide-menu">
+  <div class="slide-menu-header">
+    <h3>Menu</h3>
+    <button class="close-btn" onclick="closeSlideMenu()">&times;</button>
+  </div>
+  <nav class="slide-nav">
+    <ul>
+      <li><a href="index.html" onclick="closeSlideMenu()">Strona Główna</a></li>
+      <li><a href="onas.html" onclick="closeSlideMenu()">O nas</a></li>
+      <li><a href="menu.html" onclick="closeSlideMenu()">Menu</a></li>
+      <li><a href="kontakt.html" onclick="closeSlideMenu()">Kontakt</a></li>
+      <li><a href="budowa.html" onclick="closeSlideMenu()">Nowości</a></li>
+    </ul>
+  </nav>
+</div>
 
-    closeMenu.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-
-    // Zamknij menu, gdy kliknięto poza jego treść
-    mobileMenu.addEventListener('click', (e) => {
-      if (e.target === mobileMenu) {
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Zamknij menu klawiszem Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
-    });
-  </script>
-
+ <script src="script.js"></script>
+	
 </body>
 </html>
+	
