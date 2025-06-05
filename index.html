@@ -5,6 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kawiarnia Ekologiczna</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .hamburger span {
+      height: 4px;
+      width: 100%;
+      background: #333;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      justify-content: flex-end;
+    }
+    .mobile-menu.active {
+      display: flex;
+    }
+    .mobile-menu-content {
+      background: #fff;
+      width: 250px;
+      height: 100%;
+      padding: 40px 20px 20px 20px;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      animation: slideIn 0.3s;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%);}
+      to { transform: translateX(0);}
+    }
+    .mobile-menu-content .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .mobile-menu-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mobile-menu-content a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      nav ul {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -22,13 +100,27 @@
         <li><a href="budowa.html">Nowości</a></li>
       </ul>
     </nav>
-      <button class="menu-toggle" aria-label="Otwórz menu" onclick="toggleSlideMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-      </button>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </header>
+
+<!-- Mobile menu popup -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-content">
+    <button class="close-btn" id="closeMenu" aria-label="Zamknij menu">&times;</button>
+    <ul>
+      <li><a href="index.html">Strona Główna</a></li>
+      <li><a href="onas.html">O nas</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="budowa.html">Nowości</a></li>
+    </ul>
+  </div>
+</div>
 
 <section id="hero">
   <h1>Witaj w Kawiarni Ekologicznej!</h1>
@@ -93,25 +185,29 @@
   </div>
 </footer>
 
-<div class="menu-overlay" onclick="closeSlideMenu()"></div>
-<div class="slide-menu">
-  <div class="slide-menu-header">
-    <h3>Menu</h3>
-    <button class="close-btn" onclick="closeSlideMenu()">&times;</button>
-  </div>
-  <nav class="slide-nav">
-    <ul>
-      <li><a href="index.html" onclick="closeSlideMenu()">Strona Główna</a></li>
-      <li><a href="onas.html" onclick="closeSlideMenu()">O nas</a></li>
-      <li><a href="menu.html" onclick="closeSlideMenu()">Menu</a></li>
-      <li><a href="kontakt.html" onclick="closeSlideMenu()">Kontakt</a></li>
-      <li><a href="budowa.html" onclick="closeSlideMenu()">Nowości</a></li>
-    </ul>
-  </nav>
-</div>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
 
- <script src="script.js"></script>
-	
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  // Close menu when clicking outside content
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
 </body>
 </html>
-	
