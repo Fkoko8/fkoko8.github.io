@@ -1412,12 +1412,6 @@ main {
     align-items: stretch;
     gap: 16px;
   }
-  .logo {
-    /* przenosimy logo na środek (gdy menu ukryte) */
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
   header nav ul {
     flex-direction: column;
     gap: 12px;
